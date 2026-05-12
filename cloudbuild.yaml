@@ -1,0 +1,29 @@
+steps:
+  # 1. Build Docker Image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'asia-southeast2-docker.pkg.dev/$PROJECT_ID/emasku-repo/emasku-app:latest', '.']
+
+  # 2. Push Image ke Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'asia-southeast2-docker.pkg.dev/$PROJECT_ID/emasku-repo/emasku-app:latest']
+
+  # 3. Deploy ke Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'emasku-app'
+      - '--image'
+      - 'asia-southeast2-docker.pkg.dev/$PROJECT_ID/emasku-repo/emasku-app:latest'
+      - '--region'
+      - 'asia-southeast2'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
+
+images:
+  - 'asia-southeast2-docker.pkg.dev/$PROJECT_ID/emasku-repo/emasku-app:latest'
+
+options:
+  logging: CLOUD_LOGGING_ONLY

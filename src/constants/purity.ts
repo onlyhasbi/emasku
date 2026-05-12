@@ -1,0 +1,36 @@
+export const PURITY_TABLE = [
+  { karat: "24K", hallmark: "990 - 999", purity: 0.999, label: "Logam Mulia" },
+  { karat: "23K", hallmark: "948 - 989", purity: 0.958, label: "Emas Tua" },
+  {
+    karat: "22K",
+    hallmark: "906 - 947",
+    purity: 0.916,
+    label: "Standar Perhiasan (Tinggi)",
+  },
+  { karat: "21K", hallmark: "865 - 905", purity: 0.875, label: "Emas Arab" },
+  { karat: "20K", hallmark: "823 - 864", purity: 0.833, label: "Emas Tua" },
+  { karat: "19K", hallmark: "782 - 822", purity: 0.792, label: "Emas Tua" },
+  {
+    karat: "18K",
+    hallmark: "750 - 781",
+    purity: 0.75,
+    label: "Standar Internasional",
+  },
+  {
+    karat: "17K",
+    hallmark: "700 - 749",
+    purity: 0.708,
+    label: "Emas 70 (Populer)",
+  },
+  { karat: "16K", hallmark: "666 - 699", purity: 0.666, label: "Emas Muda" },
+  { karat: "14K", hallmark: "585 - 665", purity: 0.585, label: "Emas Muda" },
+  { karat: "12K", hallmark: "500 - 584", purity: 0.5, label: "Emas Muda" },
+  { karat: "10K", hallmark: "416 - 499", purity: 0.416, label: "Emas Muda" },
+  { karat: "9K", hallmark: "375 - 415", purity: 0.375, label: "Emas Muda" },
+  {
+    karat: "8K",
+    hallmark: "300 - 374",
+    purity: 0.333,
+    label: "Kadar Terendah",
+  },
+];
