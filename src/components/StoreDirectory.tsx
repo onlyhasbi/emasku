@@ -35,7 +35,7 @@ export function StoreDirectory({
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState<'distance_asc' | 'distance_desc' | 'name_asc' | 'name_desc' | 'reviews_desc'>('distance_asc');
   const [searchQuery, setSearchQuery] = useState('');
-  const [searchRadius, setSearchRadius] = useState(50000);
+  const [searchRadius] = useState(15000);
   const [livePrices, setLivePrices] = useState<Record<string, LivePrice>>({});
   const [loadingPrices, setLoadingPrices] = useState<Record<string, boolean>>({});
   const [userLocation, setUserLocation] = useState<{ lat: number; lng: number } | null>(null);
@@ -240,29 +240,6 @@ export function StoreDirectory({
                             </div>
                           </div>
                           
-                          <div className="pt-4 border-t border-slate-100">
-                            <label className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">Radius (KM)</label>
-                            <div className="flex flex-wrap gap-2">
-                              {[
-                                { value: 5000, label: '5' },
-                                { value: 15000, label: '15' },
-                                { value: 50000, label: '50' },
-                                { value: 100000, label: '100' }
-                              ].map(opt => (
-                                <button
-                                  key={opt.value}
-                                  onClick={() => {
-                                    setSearchRadius(opt.value);
-                                    setLivePrices({});
-                                    handleRequestLocation(opt.value);
-                                  }}
-                                  className={`px-3 py-1.5 rounded-md text-[11px] font-bold transition-all ${searchRadius === opt.value ? 'bg-amber-500 text-white shadow-sm' : 'bg-slate-50 text-slate-600 hover:bg-slate-100'}`}
-                                >
-                                  {opt.label}
-                                </button>
-                              ))}
-                            </div>
-                          </div>
 
                           <div className="pt-4 border-t border-slate-100">
                             <label className="flex items-center justify-between cursor-pointer group">

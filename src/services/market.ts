@@ -66,7 +66,7 @@ export const findNearbyStores = createServerFn({ method: "POST" }).handler(
       .object({ 
         lat: z.number(), 
         lng: z.number(),
-        radius: z.number().optional().default(50000),
+        radius: z.number().optional().default(15000),
         specificQuery: z.string().optional()
       })
       .parse(ctx.data);

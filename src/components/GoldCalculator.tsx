@@ -1,5 +1,5 @@
-import React from "react";
-import { Scale, Badge, Percent, Store, Gem } from "lucide-react";
+import React, { useState } from "react";
+import { Scale, Badge, Percent, Store, Gem, Info } from "lucide-react";
 import { PURITY_TABLE } from "../constants/purity";
 
 interface GoldCalculatorProps {
@@ -31,6 +31,9 @@ export function GoldCalculator({
   trueGoldWeight,
   intrinsicValue,
 }: GoldCalculatorProps) {
+  const [showInfo, setShowInfo] = useState(false);
+  
+
   const handleCustomPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let rawValue = e.target.value.replace(/\D/g, "");
     if (rawValue.length > 1 && rawValue.startsWith("0"))
@@ -203,14 +206,17 @@ export function GoldCalculator({
       </section>
 
       <section className="flex flex-col gap-6 rise-in stagger-3">
-        <div className="island-shell overflow-hidden rounded-3xl relative shadow-[0_10px_40px_rgba(201,162,39,0.15)] ring-1 ring-gold/30">
-          <div className="absolute inset-0 bg-linear-to-br from-gold/10 to-transparent pointer-events-none"></div>
-          <div className="absolute -top-10 -right-10 p-4 text-gold opacity-10 pointer-events-none">
-            <Gem
-              width={240}
-              height={240}
-              strokeWidth={1}
-            />
+        <div className="island-shell rounded-3xl relative shadow-[0_10px_40px_rgba(201,162,39,0.15)] ring-1 ring-gold/30">
+          {/* Decorative layer with clipping */}
+          <div className="absolute inset-0 overflow-hidden rounded-3xl pointer-events-none">
+            <div className="absolute inset-0 bg-linear-to-br from-gold/10 to-transparent"></div>
+            <div className="absolute -top-10 -right-10 p-4 text-gold opacity-10">
+              <Gem
+                width={240}
+                height={240}
+                strokeWidth={1}
+              />
+            </div>
           </div>
           <div className="relative z-10 p-8">
             <p className="text-(--kicker) uppercase tracking-[0.2em] font-bold text-[0.65rem] mb-2 flex items-center gap-2">
@@ -236,8 +242,21 @@ export function GoldCalculator({
                   </p>
                 </div>
                 <div className="pl-3">
-                  <p className="text-[10px] uppercase text-(--sea-ink-soft) mb-1 font-bold tracking-wider">
+                  <p className="text-[10px] uppercase text-(--sea-ink-soft) mb-1 font-bold tracking-wider flex items-center gap-1 relative">
                     Nilai Intrinsik
+                    <button 
+                      onClick={() => setShowInfo(!showInfo)}
+                      className="flex items-center text-slate-400 hover:text-gold transition-colors focus:outline-none"
+                    >
+                      <Info className="w-3.5 h-3.5 cursor-help" />
+                    </button>
+                    
+                    {showInfo && (
+                      <div className="absolute bottom-full left-0 mb-2 w-48 bg-(--sea-ink) text-(--bg-base) text-[10px] p-3 rounded-lg shadow-xl z-50 normal-case leading-relaxed animate-in fade-in zoom-in duration-200 border border-(--line)">
+                        <div className="absolute bottom-0 left-4 translate-y-1/2 rotate-45 w-2 h-2 bg-(--sea-ink) border-r border-b border-(--line)"></div>
+                        Nilai dasar emas murni (24K) sesuai harga pasar dunia saat ini, sebelum dipotong spread/keuntungan toko.
+                      </div>
+                    )}
                   </p>
                   <p className="text-xl font-bold text-(--sea-ink)">
                     Rp {Math.round(intrinsicValue).toLocaleString("id-ID")}
