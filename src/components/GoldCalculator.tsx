@@ -1,5 +1,5 @@
 import React from "react";
-import { ScaleIcon, BadgeIcon, PercentIcon, StoreIcon } from "../assets/icons";
+import { Scale, Badge, Percent, Store, Gem } from "lucide-react";
 import { PURITY_TABLE } from "../constants/purity";
 
 interface GoldCalculatorProps {
@@ -95,7 +95,7 @@ export function GoldCalculator({
           <div className="grid gap-6 sm:grid-cols-2">
             <div>
               <label className="mb-2 flex items-center gap-2 text-sm font-bold text-(--sea-ink)">
-                <ScaleIcon className="h-4 w-4 text-gold" />
+                <Scale className="h-4 w-4 text-gold" />
                 Berat Emas (Gram)
               </label>
               <div className="relative group">
@@ -115,7 +115,7 @@ export function GoldCalculator({
 
             <div>
               <label className="mb-2 flex items-center gap-2 text-sm font-bold text-(--sea-ink)">
-                <BadgeIcon className="h-4 w-4 text-gold" />
+                <Badge className="h-4 w-4 text-gold" />
                 Pilih Kadar (Karat)
               </label>
               <div className="relative group">
@@ -147,7 +147,7 @@ export function GoldCalculator({
             <div>
               <div className="mb-3 flex items-center justify-between">
                 <label className="flex items-center gap-2 text-sm font-bold text-(--sea-ink)">
-                  <PercentIcon className="h-4 w-4 text-gold" />
+                  <Percent className="h-4 w-4 text-gold" />
                   Potongan (Spread)
                 </label>
                 <div className="flex items-center gap-0.5 px-2 py-1">
@@ -180,7 +180,7 @@ export function GoldCalculator({
 
             <div className="border-t border-(--line) pt-4">
               <label className="mb-2 flex items-center gap-2 text-sm font-bold text-(--sea-ink)">
-                <StoreIcon className="h-4 w-4 text-gold" />
+                <Store className="h-4 w-4 text-gold" />
                 Harga Buyback Toko (Per Gram)
               </label>
               <div className="relative group">
@@ -206,14 +206,11 @@ export function GoldCalculator({
         <div className="island-shell overflow-hidden rounded-3xl relative shadow-[0_10px_40px_rgba(201,162,39,0.15)] ring-1 ring-gold/30">
           <div className="absolute inset-0 bg-linear-to-br from-gold/10 to-transparent pointer-events-none"></div>
           <div className="absolute -top-10 -right-10 p-4 text-gold opacity-10 pointer-events-none">
-            <svg
-              width="240"
-              height="240"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z" />
-            </svg>
+            <Gem
+              width={240}
+              height={240}
+              strokeWidth={1}
+            />
           </div>
           <div className="relative z-10 p-8">
             <p className="text-(--kicker) uppercase tracking-[0.2em] font-bold text-[0.65rem] mb-2 flex items-center gap-2">

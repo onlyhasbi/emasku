@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { LogoIcon } from "../assets/icons";
 import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
@@ -10,21 +11,8 @@ export default function Header() {
           search={{ k: undefined, s: undefined, w: undefined, t: "kalkulator" }}
           className="inline-flex items-center gap-2.5 no-underline"
         >
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-linear-to-br from-gold to-gold-dark shadow-sm">
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="white"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M12 2L2 7l10 5 10-5-10-5z" />
-              <path d="M2 17l10 5 10-5" />
-              <path d="M2 12l10 5 10-5" />
-            </svg>
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-(--sea-ink) shadow-md">
+            <LogoIcon className="w-[20px] h-[20px]" />
           </div>
           <span className="text-lg font-extrabold tracking-tight text-(--sea-ink)">
             Emasku

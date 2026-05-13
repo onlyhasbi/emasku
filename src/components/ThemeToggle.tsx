@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { Monitor, Moon, Sun } from "lucide-react";
 type ThemeMode = "light" | "dark" | "auto";
 
 function getInitialMode(): ThemeMode {
@@ -76,54 +76,11 @@ export default function ThemeToggle() {
       className="flex h-9 w-9 items-center justify-center rounded-full border border-(--chip-line) bg-(--chip-bg) text-(--sea-ink) shadow-[0_8px_22px_rgba(30,90,72,0.08)] transition hover:-translate-y-0.5"
     >
       {mode === "auto" ? (
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <rect width="20" height="14" x="2" y="3" rx="2"></rect>
-          <line x1="8" x2="16" y1="21" y2="21"></line>
-          <line x1="12" x2="12" y1="17" y2="21"></line>
-        </svg>
+        <Monitor className="w-4 h-4" strokeWidth={2.5} />
       ) : mode === "dark" ? (
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
-        </svg>
+        <Moon className="w-4 h-4" strokeWidth={2.5} />
       ) : (
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <circle cx="12" cy="12" r="4"></circle>
-          <path d="M12 2v2"></path>
-          <path d="M12 20v2"></path>
-          <path d="m4.93 4.93 1.41 1.41"></path>
-          <path d="m17.66 17.66 1.41 1.41"></path>
-          <path d="M2 12h2"></path>
-          <path d="M20 12h2"></path>
-          <path d="m6.34 17.66-1.41 1.41"></path>
-          <path d="m19.07 4.93-1.41 1.41"></path>
-        </svg>
+        <Sun className="w-4 h-4" strokeWidth={2.5} />
       )}
     </button>
   );

@@ -68,44 +68,46 @@
   }
 }
 
-* {
-  box-sizing: border-box;
-}
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
 
-html,
-body,
-#app {
-  min-height: 100%;
-}
+  html,
+  body,
+  #app {
+    min-height: 100%;
+  }
 
-body {
-  margin: 0;
-  color: var(--sea-ink);
-  font-family: var(--font-sans);
-  background-color: var(--bg-base);
-  background-image:
-    radial-gradient(
-      ellipse 800px 500px at 10% 0%,
-      rgba(201, 162, 39, 0.06),
-      transparent
-    ),
-    radial-gradient(
-      ellipse 600px 400px at 90% 5%,
-      rgba(15, 23, 41, 0.04),
-      transparent
-    );
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  body {
+    margin: 0;
+    color: var(--sea-ink);
+    font-family: var(--font-sans);
+    background-color: var(--bg-base);
+    background-image:
+      radial-gradient(
+        ellipse 800px 500px at 10% 0%,
+        rgba(201, 162, 39, 0.06),
+        transparent
+      ),
+      radial-gradient(
+        ellipse 600px 400px at 90% 5%,
+        rgba(15, 23, 41, 0.04),
+        transparent
+      );
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-a {
-  color: #c9a227;
-  text-decoration: none;
-}
+  a {
+    color: #c9a227;
+    text-decoration: none;
+  }
 
-a:hover {
-  color: #8b6914;
+  a:hover {
+    color: #8b6914;
+  }
 }
 
 .page-wrap {

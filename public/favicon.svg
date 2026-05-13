@@ -1,23 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <defs>
-    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FDE047"/>
-      <stop offset="30%" stop-color="#F59E0B"/>
-      <stop offset="70%" stop-color="#B45309"/>
-      <stop offset="100%" stop-color="#78350F"/>
-    </linearGradient>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#1E293B"/>
-      <stop offset="100%" stop-color="#0F172A"/>
-    </linearGradient>
-  </defs>
+  <!-- Top Center -->
+  <polygon points="160,96 352,96 320,224 192,224" fill="#FDE047" />
+  <!-- Top Left -->
+  <polygon points="160,96 48,224 192,224" fill="#FBBF24" />
+  <!-- Top Right -->
+  <polygon points="352,96 464,224 320,224" fill="#F59E0B" />
   
-  <!-- Background -->
-  <rect width="512" height="512" rx="128" fill="url(#bg)" />
-  
-  <!-- Outer Gold Ring -->
-  <rect x="32" y="32" width="448" height="448" rx="96" fill="none" stroke="url(#gold)" stroke-width="24" />
+  <!-- Bottom Center -->
+  <polygon points="192,224 320,224 256,464" fill="#F59E0B" />
+  <!-- Bottom Left -->
+  <polygon points="48,224 192,224 256,464" fill="#D97706" />
+  <!-- Bottom Right -->
+  <polygon points="464,224 320,224 256,464" fill="#B45309" />
 
-  <!-- Stylized Gold 'E' Logo -->
-  <path d="M160 156 H352 V204 H220 V232 H312 V280 H220 V308 H352 V356 H160 Z" fill="url(#gold)"/>
+  <!-- Sparkle Left -->
+  <path d="M160 50 L164 85 L200 90 L164 95 L160 130 L156 95 L120 90 L156 85 Z" fill="#FFFFFF" opacity="0.9" />
+  <!-- Sparkle Right -->
+  <path d="M352 140 L354 165 L380 168 L354 171 L352 196 L350 171 L324 168 L350 165 Z" fill="#FFFFFF" opacity="0.8" />
 </svg>

@@ -2,11 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { PURITY_TABLE } from "../constants/purity";
 import { getMarketData } from "../services/market";
-import { MarketStatus } from "../components/MarketStatus";
 import { GoldCalculator } from "../components/GoldCalculator";
 import { StoreDirectory } from "../components/StoreDirectory";
 import type { Store } from "../types/store";
-import { CalculatorIcon, MapPinIcon } from "../assets/icons";
+import { Calculator, MapPin } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   component: App,
@@ -102,8 +101,6 @@ function App() {
 
   return (
     <main className="page-wrap px-4 pb-12 pt-8">
-      <MarketStatus marketData={marketData} />
-
       <div className="flex flex-col md:flex-row gap-8 rise-in stagger-2">
         <aside className="w-full md:w-48 shrink-0">
           <div className="flex flex-row md:flex-col gap-2 sticky top-8">
@@ -111,13 +108,13 @@ function App() {
               active={activeTab === "kalkulator"}
               onClick={() => setActiveTab("kalkulator")}
               icon="calculator"
-              label="Kalkulator"
+              label="Estimasi"
             />
             <TabButton
               active={activeTab === "toko"}
               onClick={() => setActiveTab("toko")}
               icon="map"
-              label="Direktori"
+              label="Terdekat"
             />
           </div>
         </aside>
@@ -146,6 +143,7 @@ function App() {
               setIsLoadingStores={setIsLoadingStores}
               showLocationModal={showLocationModal}
               setShowLocationModal={setShowLocationModal}
+              marketData={marketData}
             />
           )}
         </div>
@@ -171,9 +169,9 @@ function TabButton({
       className={`flex-1 md:w-full text-left rounded-xl px-4 py-3 text-sm font-bold transition-all flex items-center justify-center md:justify-start gap-3 ${active ? "bg-(--surface) text-(--sea-ink) shadow-md ring-1 ring-black/5 dark:ring-white/10" : "text-(--sea-ink-soft) hover:text-(--sea-ink) hover:bg-black/5 dark:hover:bg-white/5"}`}
     >
       {icon === "calculator" ? (
-        <CalculatorIcon className="w-5 h-5 hidden sm:block" />
+        <Calculator className="w-5 h-5 hidden sm:block" />
       ) : (
-        <MapPinIcon className="w-5 h-5 hidden sm:block" />
+        <MapPin className="w-5 h-5 hidden sm:block" />
       )}
       <span>{label}</span>
     </button>
